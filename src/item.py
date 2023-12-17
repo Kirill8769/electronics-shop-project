@@ -1,5 +1,5 @@
-import os
 import csv
+import os
 import re
 
 
@@ -7,8 +7,9 @@ class Item:
     """
     Класс для представления товара в магазине.
     """
+
     pay_rate = 1.0
-    all = []
+    all: list = []
 
     def __init__(self, name: str, price: float | int, quantity: int) -> None:
         """
@@ -28,11 +29,11 @@ class Item:
         self.all.append(self)
 
     @property
-    def name(self):
+    def name(self) -> str:
         return self.__name
 
     @name.setter
-    def name(self, value: str):
+    def name(self, value: str) -> None:
         if not isinstance(value, str):
             raise TypeError("В аргументе name ожидается тип данных str")
         if len(value) > 10:
@@ -41,7 +42,7 @@ class Item:
             self.__name = value
 
     @classmethod
-    def instantiate_from_csv(cls, file_path: str):
+    def instantiate_from_csv(cls, file_path: str) -> None:
         if not os.path.isfile(file_path):
             raise FileExistsError("Файл не найден")
         with open(file_path, newline="") as file:
@@ -50,9 +51,10 @@ class Item:
                 cls(row["name"], float(row["price"]), int(row["quantity"]))
 
     @staticmethod
-    def string_to_number(str_digit: str):
+    def string_to_number(str_digit: str) -> int | None:
         if re.search(r"^\d[\d.]*$", str_digit):
             return int(float(str_digit))
+        return None
 
     def calculate_total_price(self) -> float:
         """
