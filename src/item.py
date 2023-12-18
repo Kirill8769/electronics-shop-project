@@ -19,7 +19,7 @@ class Item:
         :param price: Цена за единицу товара.
         :param quantity: Количество товара в магазине.
         """
-        self.__name = self.name = name
+        self.name = name
         if not isinstance(price, float | int):
             raise TypeError("В аргументе price ожидается тип данных float или int")
         self.price = price
