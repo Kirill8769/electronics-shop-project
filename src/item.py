@@ -43,6 +43,7 @@ class Item:
 
     @classmethod
     def instantiate_from_csv(cls, file_path: str) -> None:
+        cls.all = []
         if not os.path.isfile(file_path):
             raise FileExistsError("Файл не найден")
         with open(file_path, newline="") as file:
