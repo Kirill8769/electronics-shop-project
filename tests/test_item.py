@@ -11,6 +11,8 @@ def init_data():
 def test_class_item_init(init_data):
     result = Item(*init_data)
     assert result.calculate_total_price() == 200000
+    assert repr(result) == "Item('Смартфон', 10000, 20)"
+    assert str(result) == 'Смартфон'
     Item.pay_rate = 0.8
     result.apply_discount()
     assert result.price == 8000.0
