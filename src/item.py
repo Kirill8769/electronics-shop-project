@@ -29,7 +29,7 @@ class Item:
         self.all.append(self)
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
+        return f"{self.__class__.__name__}{tuple(self.__dict__.values())}"
 
     def __str__(self) -> str:
         return f"{self.name}"
