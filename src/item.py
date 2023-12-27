@@ -29,10 +29,16 @@ class Item:
         self.all.append(self)
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
+        return f"{self.__class__.__name__}{tuple(self.__dict__.values())}"
 
     def __str__(self) -> str:
         return f"{self.name}"
+
+    def __add__(self, other) -> int:
+        if isinstance(self, Item) and isinstance(other, Item):
+            return self.quantity + other.quantity
+        else:
+            raise TypeError("Нельзя сложить 'Phone' или 'Item' с экземплярами классов не 'Phone' или 'Item'")
 
     @property
     def name(self) -> str:

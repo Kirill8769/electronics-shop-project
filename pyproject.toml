@@ -6,7 +6,7 @@ authors = ["kirill8769 <tkkrozn@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "3.10.4"
 
 [tool.poetry.group.lint.dependencies]
 black = "^23.11.0"
