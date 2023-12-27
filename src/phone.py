@@ -7,23 +7,23 @@ class Phone(Item):
         self.number_of_sim = number_of_sim
 
     @property
-    def number_of_sim(self):
+    def number_of_sim(self) -> int:
         return self._number_of_sim
-    
+
     @number_of_sim.setter
-    def number_of_sim(self, value):
+    def number_of_sim(self, value: int) -> None:
         if isinstance(value, int) and value > 0:
             self._number_of_sim = value
         else:
             raise ValueError("Количество физических SIM-карт должно быть целым числом больше нуля.")
 
-    def __add__(self, other):
+    def __add__(self, other: classmethod) -> int:
         if isinstance(self, Phone) and isinstance(other, Phone | Item):
             return self.quantity + other.quantity
         else:
             raise TypeError("Нельзя сложить 'Phone' или 'Item' с экземплярами классов не 'Phone' или 'Item'")
 
-    def __radd__(self, other):
+    def __radd__(self, other: classmethod) -> int:
         if isinstance(self, Item) and isinstance(other, Phone | Item):
             return self.quantity + other.quantity
         else:
