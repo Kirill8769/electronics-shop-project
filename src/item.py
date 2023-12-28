@@ -34,7 +34,7 @@ class Item:
     def __str__(self) -> str:
         return f"{self.name}"
 
-    def __add__(self, other) -> int:
+    def __add__(self, other: classmethod) -> int:
         if isinstance(self, Item) and isinstance(other, Item):
             return self.quantity + other.quantity
         else:

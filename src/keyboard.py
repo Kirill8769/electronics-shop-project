@@ -1,13 +1,12 @@
 class ChangeLang:
-
     def __init__(self) -> None:
-        self.__language = "EN"
+        self.__language: str = "EN"
 
     @property
-    def language(self):
+    def language(self) -> str:
         return self.__language
-    
-    def change_lang(self):
+
+    def change_lang(self) -> None:
         if self.__language == "EN":
             self.__language = "RU"
         else:
@@ -15,7 +14,6 @@ class ChangeLang:
 
 
 class Keyboard(ChangeLang):
-
     def __init__(self, name: str, price: float | int, quantity: int) -> None:
         self.name = name
         self.price = price
