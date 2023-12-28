@@ -24,6 +24,3 @@ class Keyboard(ChangeLang):
 
     def __str__(self) -> str:
         return f"{self.name}"
-
-
-
